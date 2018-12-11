@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :meta_event do
+    slug { "MyString" }
+    name { "MyString" }
+  end
   sequence :email do |n|
     "person#{n}@example.com"
   end

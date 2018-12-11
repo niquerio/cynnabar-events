@@ -1,1 +1,23 @@
 @import url("../../../node_modules/bootstrap/dist/css/bootstrap.css");
+
+.form-signin {
+  text-align: center;
+  width: 100%;
+  max-width: 330px;
+  padding:15px;
+  margin:0 auto;
+  .form-control{
+    padding: 10px;
+  }
+}
+
+.form-change-password{
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  padding:15px;
+  margin:0 auto;
+  .form-control{
+    padding: 10px;
+  }
+}
