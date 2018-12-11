@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_002323) do
+ActiveRecord::Schema.define(version: 2018_12_11_194046) do
+
+  create_table "events", force: :cascade do |t|
+    t.integer "meta_event_id"
+    t.string "name"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meta_event_id"], name: "index_events_on_meta_event_id"
+  end
 
   create_table "meta_events", force: :cascade do |t|
     t.string "slug"

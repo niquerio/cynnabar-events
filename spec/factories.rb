@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :event do
+    meta_event 
+    name { "MyString" }
+    start_date { "2018-12-11 14:40:46" }
+    end_date { "2018-12-11 14:40:46" }
+  end
   factory :meta_event do
     slug { "MyString" }
     name { "MyString" }
