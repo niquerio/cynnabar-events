@@ -1,5 +1,5 @@
 <h2>Create New Meta Event</h2>
-<%= bootstrap_form_with model: @meta_event do|f| %>
+<%= bootstrap_form_with model: @meta_event, url: admin_event_series_path do|f| %>
   <%= f.text_field :name, label: 'Meta Event Name' %>
   <%= f.text_field :slug %>
   <%= f.fields_for :events do |ef| %>

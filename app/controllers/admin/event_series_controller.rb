@@ -1,4 +1,4 @@
-class MetaEventsController < ApplicationController
+class Admin::EventSeriesController < ApplicationController
   def new
     @meta_event = MetaEvent.new
     @meta_event.events.build 
@@ -8,7 +8,7 @@ class MetaEventsController < ApplicationController
     @meta_event.events.first.start_date = @meta_event.events.first.start_date.change(zone: 'EST')
     @meta_event.events.first.end_date = @meta_event.events.first.end_date.change(zone: 'EST', hour: 23, min: 59, sec: 59) 
     if @meta_event.save
-      redirect_to user_index_path
+      redirect_to admin_user_index_path
     else
       render 'new'
     end

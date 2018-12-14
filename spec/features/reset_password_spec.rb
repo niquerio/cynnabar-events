@@ -41,7 +41,7 @@ RSpec.feature 'Successful Reset Password' do
     click_on 'Update'
     
     expect(User.first.valid_password?(new_password)).to be_truthy
-    expect(page).to have_current_path(user_index_path)
+    expect(page).to have_current_path(admin_user_index_path)
     
   end
   scenario 'user logs in and then changes email address' do
