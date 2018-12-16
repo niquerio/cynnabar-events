@@ -2,16 +2,23 @@
 <%= link_to('Logout', destroy_user_session_path) %><br>        
 <%= link_to "Change your email and/or password", edit_user_registration_path %></br>
 
-<%= link_to "Create New Event Series", admin_new_event_series_path %>
 
 <h3>Event Series</h3>
-<% @user.event_series.each do |es| %>
-  <div>
-    <h4><%=es.name%></h4>
-    <ul>
-      <% es.events.each do |e| %>
-        <li><%= e.name %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <%= button_to "Create New Event Series", admin_new_event_series_path, class: "btn btn-lg btn-default", method: :get %>
+  <br>
+<div class="row">
+  <% @user.event_series.each do |es| %>
+    <div class="col-sm-3 mb-3">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title"><%=es.name%></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% es.events.each do |e| %>
+            <li class="list-group-item"><%= e.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>

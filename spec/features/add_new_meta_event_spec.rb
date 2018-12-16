@@ -11,7 +11,7 @@ feature "Create Meta Event" do
     fill_in 'meta_event[events_attributes][0][name]', with: 'New Event 1' 
     fill_in 'meta_event[events_attributes][0][start_date]', with: '01-Dec-2018'
     fill_in 'meta_event[events_attributes][0][end_date]', with: '02-Dec-2018'
-    click_on 'Create Meta Event'
+    click_on 'Create Event Series'
     expect(MetaEvent.first.name).to eq('New Event') 
     expect(MetaEvent.first.slug).to eq('new_event') 
     event = MetaEvent.first.events.first 
