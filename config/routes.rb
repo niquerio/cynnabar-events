@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     get '/' => 'users#index', as: :user_index
-    get '/event_series/new' => 'event_series#new', as: :new_event_series
-    post '/event_series' => 'event_series#create'
+    resources :event_series, only: [:new, :create]
+    resources :events, only: [:edit, :update]
   end
   root 'welcome#index' 
   

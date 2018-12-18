@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_194046) do
+ActiveRecord::Schema.define(version: 2018_12_16_132728) do
 
   create_table "events", force: :cascade do |t|
     t.integer "meta_event_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_194046) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "facebook_event_link"
     t.index ["meta_event_id"], name: "index_events_on_meta_event_id"
   end
 
@@ -27,6 +28,16 @@ ActiveRecord::Schema.define(version: 2018_12_11_194046) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer "event_id"
+    t.string "title"
+    t.text "body"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_pages_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|

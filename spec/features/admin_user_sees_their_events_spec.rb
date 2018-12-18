@@ -1,5 +1,5 @@
 require 'rails_helper'
-feature "Admin User Sees their events (so all events) #TBCHANGED" do
+feature "Admin User Sees their events (so all events) #TBC" do
   include_context "when signed in through capybara"
   scenario "admin sees their events" do
     admin = create(:admin_user)

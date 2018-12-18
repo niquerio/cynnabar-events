@@ -5,7 +5,7 @@ feature "Create Meta Event" do
     admin = create(:admin_user)
     sign_in(admin)
     click_on 'Create New Event Series'
-    expect(page).to have_current_path(admin_new_event_series_path)
+    expect(page).to have_current_path(new_admin_event_series_path)
     fill_in 'meta_event_name', with: 'New Event'
     fill_in 'meta_event_slug', with: 'new_event'
     fill_in 'meta_event[events_attributes][0][name]', with: 'New Event 1' 

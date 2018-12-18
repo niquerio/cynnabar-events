@@ -1,0 +1,11 @@
+<h2>Edit Event "<%= @event.name %>"</h2>
+<%= bootstrap_form_with model: @event, url: admin_event_path, method: :put do |f| %>
+  <%= f.text_field :name, label: 'Event Name' %>
+  <%= f.text_field :facebook_event_link %>
+  <%= f.fields_for :pages do |p| %>
+      <%= p.text_area :body, label: p.object.title %>
+      <%= p.hidden_field :title %>
+      <%= p.hidden_field :slug %>
+  <% end %>
+  <%= f.submit 'Update Event' %>
+<% end %>

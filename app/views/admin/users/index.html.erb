@@ -4,7 +4,7 @@
 
 
 <h3>Event Series</h3>
-  <%= button_to "Create New Event Series", admin_new_event_series_path, class: "btn btn-lg btn-default", method: :get %>
+  <%= button_to "Create New Event Series", new_admin_event_series_path, class: "btn btn-lg btn-default", method: :get %>
   <br>
 <div class="row">
   <% @user.event_series.each do |es| %>
@@ -15,7 +15,7 @@
         </div>
         <ul class="list-group list-group-flush">
           <% es.events.each do |e| %>
-            <li class="list-group-item"><%= e.name %></li>
+            <li class="list-group-item"><%= link_to e.name, edit_admin_event_path(e.id) %></li>
           <% end %>
         </ul>
       </div>
