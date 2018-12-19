@@ -24,6 +24,13 @@ describe EditEventPresenter, 'initialize event' do
     it 'has description page' do
       expect(@eep.pages.map {|p| p.title == 'Description' && p.slug == 'description' && p.body.nil?}.any?).to be_truthy
     end
+    it 'has empty event steward' do
+      expect(@eep.contacts.size).to eq(1)
+      steward = @eep.contacts.first
+      expect(steward.job).to eq('Event Steward')
+      expect(steward.email).to be_nil
+      expect(steward.name).to be_nil
+    end
   end
   context 'filled out event' do
     before(:each) do
@@ -47,6 +54,13 @@ describe EditEventPresenter, 'initialize event' do
     end
     it 'has description page' do
       expect(@eep.pages.include?(@event.page('description'))).to be_truthy
+    end
+    it 'has event steward' do
+      expect(@eep.contacts.size).to eq(1)
+      steward = @eep.contacts.first
+      expect(steward.job).to eq(@event.contacts.first.job)
+      expect(steward.email).to eq(@event.contacts.first.email)
+      expect(steward.name).to eq(@event.contacts.first.name)
     end
   end
 end

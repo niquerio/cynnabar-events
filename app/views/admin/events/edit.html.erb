@@ -2,6 +2,11 @@
 <%= bootstrap_form_with model: @event, url: admin_event_path, method: :put do |f| %>
   <%= f.text_field :name, label: 'Event Name' %>
   <%= f.text_field :facebook_event_link %>
+  <%= f.fields_for :contacts do |c| %>
+    <%= c.text_field :name, label: 'Event Steward name' %>
+    <%= c.email_field :email, label: 'Event Steward Email Address' %>
+    <%= c.hidden_field :job %>
+  <% end %>
   <%= f.fields_for :pages do |p| %>
       <%= p.text_area :body, label: p.object.title %>
       <%= p.hidden_field :title %>

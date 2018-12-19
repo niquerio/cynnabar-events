@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :contact do
+    event
+    name { "Alex Aardvark" }
+    job { "floor waxer" }
+    email { "alex@aardvark.net" }
+  end
   factory :page do
     event 
     title { "MyString" }
@@ -18,6 +24,7 @@ FactoryBot.define do
       create(:page, body: 'Schedule Schedule Schedule', title: 'Schedule', slug: 'schedule', event: e)
       create(:page, body: 'Food Food Food', title: 'Food', slug: 'food', event: e)
       create(:page, body: 'Desc Desc Desc', title: 'Description', slug: 'description', event: e)
+      create(:contact, job: 'Event Steward', event: e)
     end
   end
   factory :meta_event do

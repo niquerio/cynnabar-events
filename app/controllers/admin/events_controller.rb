@@ -14,6 +14,7 @@ class Admin::EventsController < ApplicationController
 	end
   private
 	def event_params
-		params.require(:event).permit(:name, :facebook_event_link, :pages_attributes => [ :id, :slug, :title, :body]   )
+		params.require(:event).permit(:name, :facebook_event_link, :pages_attributes => [ :id, :slug, :title, :body], 
+      :contacts_attributes => [:id, :name, :job, :email]   )
 	end
 end

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_132728) do
+ActiveRecord::Schema.define(version: 2018_12_19_030611) do
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "event_id"
+    t.string "name"
+    t.string "job"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_contacts_on_event_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.integer "meta_event_id"
