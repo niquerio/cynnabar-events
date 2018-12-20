@@ -76,3 +76,29 @@ describe EditEventPresenter, 'initialize event' do
     end
   end
 end
+describe EditEventPresenter, 'start_date and end_date' do
+  context 'empty event' do
+    before(:each) do
+      @event = create(:event)  
+      @eep = EditEventPresenter.new(@event)
+    end
+    it "returns nil start_date" do
+      expect(@eep.start_date).to be_nil 
+    end
+    it "returns end_date" do
+      expect(@eep.end_date).to be_nil 
+    end
+  end
+  context 'filled out event' do
+    before(:each) do
+      @event = create(:simple_event_full)
+      @eep = EditEventPresenter.new(@event)
+    end 
+    it "returns start_date in form '1-Dec-2018'" do
+      expect(@eep.start_date).to eq(@event.start_date.strftime('%-d-%b-%Y')) 
+    end
+    it "returns end_date in form '1-Dec-2018'" do
+      expect(@eep.end_date).to eq(@event.end_date.strftime('%-d-%b-%Y')) 
+    end
+  end
+end

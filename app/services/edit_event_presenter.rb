@@ -14,6 +14,12 @@ class EditEventPresenter
     @event.contacts.build(job: 'Event Steward') if @event.contacts.count < 1
     @event.locations.build if @event.locations.count < 1
   end
+  def start_date
+    @event.start_date&.strftime('%-d-%b-%Y')  
+  end
+  def end_date
+    @event.end_date&.strftime('%-d-%b-%Y')  
+  end
     
   private
   def build_pages
