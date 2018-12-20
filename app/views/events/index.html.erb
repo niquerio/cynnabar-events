@@ -1,0 +1,9 @@
+<h1 class="text-center"><%=@event.name%></h1>
+<h4>Date: <%= @event.start_date.strftime("%A, %b %-d")%> - <%=@event.end_date.strftime("%A, %b %-d, %Y") %></h2>
+<h4>Location: <%= @event.locations.first&.name%>; <%=@event.locations.first&.address %>
+<h4>Event Steward: <%= @event.contacts.first&.name %>; <%= @event.contacts.first&.email %>
+<% @event.pages.each do |page| %>
+  <h4><%=page.title %></h4>
+  <div> <%=simple_format(page.body)%></div>
+<% end %>
+

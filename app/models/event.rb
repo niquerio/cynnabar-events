@@ -14,6 +14,15 @@ class Event < ApplicationRecord
     self.pages&.find_by(slug: slug)
   end
 
+  def slug
+    self.meta_event.slug
+  end
+
+  def self.active(slug)
+    #TBC will be determined by active flag
+    MetaEvent.find_by(slug: slug).events.first
+  end
+
 	private
 	def set_time_for_start_and_end
 		self.start_date = self.start_date&.change(zone: 'EST')

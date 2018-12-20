@@ -11,7 +11,7 @@
   <% end %>
   <%= f.fields_for :locations do |l| %>
     <%= l.text_field :name, label: 'Location Name' %>
-    <%= l.email_field :address, label: 'Location Address' %>
+    <%= l.text_field :address, label: 'Location Address' %>
   <% end %>
   <%= f.fields_for :pages do |p| %>
       <%= p.text_area :body, label: p.object.title %>

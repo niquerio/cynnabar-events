@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :events, only: [:edit, :update]
   end
   root 'welcome#index' 
+  scope '/:slug/' do
+    get '/' => 'events#index'
+  end 
   
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
