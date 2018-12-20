@@ -6,6 +6,8 @@ feature "Admin can edit simple event" do
 		fill_in 'Gate', with: hash[:gate_body]
     fill_in 'event[contacts_attributes][0][email]', with: hash[:contact_email]
     fill_in 'event[contacts_attributes][0][name]', with: hash[:contact_name]
+    fill_in 'event[locations_attributes][0][name]', with: hash[:location_name]
+    fill_in 'event[locations_attributes][0][address]', with: hash[:address]
     click_on 'Update Event'
   
   end
@@ -15,13 +17,17 @@ feature "Admin can edit simple event" do
     contact = Event.first.contacts.first
     expect(contact.email).to eq(@hash[:contact_email])
     expect(contact.name).to eq(@hash[:contact_name])
+		location = Event.first.locations.first
+    expect(location.name).to eq(@hash[:location_name])
+    expect(location.address).to eq(@hash[:address])
     expect(page).to have_current_path(admin_user_index_path)
     expect(page.body).to include('Event successfully updated')
   end
   before(:each) do
     @hash = { event_name: 'Event!!', gate_body: 'Gate is open!', 
-      contact_email: 'someone@somewhere.com', contact_name: 'Someone'
-    }
+      contact_email: 'someone@somewhere.com', contact_name: 'Someone', 
+			location_name: 'Some Church Basement', address: '5555 Someplace Dr.; Ann Arbor, MI, 48105'
+	    }
   end
   scenario "admin clicks on dashboard edit event link and updates an event when there are no pages" do
     admin = create(:admin_user)

@@ -7,6 +7,10 @@
     <%= c.email_field :email, label: 'Event Steward Email Address' %>
     <%= c.hidden_field :job %>
   <% end %>
+  <%= f.fields_for :locations do |l| %>
+    <%= l.text_field :name, label: 'Location Name' %>
+    <%= l.email_field :address, label: 'Location Address' %>
+  <% end %>
   <%= f.fields_for :pages do |p| %>
       <%= p.text_area :body, label: p.object.title %>
       <%= p.hidden_field :title %>

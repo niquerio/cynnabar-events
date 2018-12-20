@@ -31,6 +31,12 @@ describe EditEventPresenter, 'initialize event' do
       expect(steward.email).to be_nil
       expect(steward.name).to be_nil
     end
+    it 'has an empty location' do
+      expect(@eep.locations.size).to eq(1)
+      loc = @eep.locations.first
+      expect(loc.name).to be_nil
+      expect(loc.address).to be_nil
+    end
   end
   context 'filled out event' do
     before(:each) do
@@ -61,6 +67,12 @@ describe EditEventPresenter, 'initialize event' do
       expect(steward.job).to eq(@event.contacts.first.job)
       expect(steward.email).to eq(@event.contacts.first.email)
       expect(steward.name).to eq(@event.contacts.first.name)
+    end
+    it 'has a location' do
+      expect(@eep.locations.size).to eq(1)
+      loc = @eep.locations.first
+      expect(loc.name).to eq(@event.locations.first.name)
+      expect(loc.address).to eq(@event.locations.first.address)
     end
   end
 end

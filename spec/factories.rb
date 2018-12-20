@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :location do
+    event
+    name { "MyString" }
+    address { "MyString" }
+    description { nil }
+  end
   factory :contact do
     event
     name { "Alex Aardvark" }
@@ -25,6 +31,7 @@ FactoryBot.define do
       create(:page, body: 'Food Food Food', title: 'Food', slug: 'food', event: e)
       create(:page, body: 'Desc Desc Desc', title: 'Description', slug: 'description', event: e)
       create(:contact, job: 'Event Steward', event: e)
+      create(:location, name: 'The Usual Church Basement', address: '55555 Division St.; Ann Arbor, MI, 48104')
     end
   end
   factory :meta_event do

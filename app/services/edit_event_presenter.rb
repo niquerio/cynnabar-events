@@ -1,7 +1,7 @@
 class EditEventPresenter
   extend Forwardable
   def_delegators :@event, :name, :id, :model_name, :facebook_event_link, :pages, :pages_attributes=, :page,
-    :contacts, :contacts_attributes=
+    :contacts, :contacts_attributes=, :locations, :locations_attributes=
   def initialize(event)
     @event = event
     @pages = [
@@ -12,6 +12,7 @@ class EditEventPresenter
     ]
     build_pages
     @event.contacts.build(job: 'Event Steward') if @event.contacts.count < 1
+    @event.locations.build if @event.locations.count < 1
   end
     
   private

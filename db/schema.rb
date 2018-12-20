@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_19_030611) do
+ActiveRecord::Schema.define(version: 2018_12_19_235218) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer "event_id"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2018_12_19_030611) do
     t.datetime "updated_at", null: false
     t.string "facebook_event_link"
     t.index ["meta_event_id"], name: "index_events_on_meta_event_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer "event_id"
+    t.string "name"
+    t.string "address"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_locations_on_event_id"
   end
 
   create_table "meta_events", force: :cascade do |t|
