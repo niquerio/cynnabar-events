@@ -8,14 +8,14 @@
   <br>
 <div class="row">
   <% @user.event_series.each do |es| %>
-    <div class="col-sm-3 mb-3">
+    <div class="col-sm-4 mb-3">
       <div class="card" >
         <div class="card-body">
           <h5 class="card-title"><%=es.name%></h5>
         </div>
         <ul class="list-group list-group-flush">
           <% es.events.each do |e| %>
-            <li class="list-group-item"><%= link_to e.name, edit_admin_event_path(e.id) %></li>
+            <li class="list-group-item"><%= link_to e.name, event_path(e.id) %> <%= link_to 'Edit', edit_admin_event_path(e.id), class: "btn btn-sm btn-default", id: "edit_event_#{e.id}" %></li>
           <% end %>
         </ul>
       </div>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :events, only: [:edit, :update]
   end
   root 'welcome#index' 
+  resources :events, only: [:show]
   scope '/:slug/' do
     get '/' => 'events#index'
   end 

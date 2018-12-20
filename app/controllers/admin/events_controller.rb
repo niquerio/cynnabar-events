@@ -6,7 +6,7 @@ class Admin::EventsController < ApplicationController
 	def update
     @event = Event.find(params[:id])		
 		if @event.update(event_params)
-			redirect_to admin_user_index_path
+			redirect_to event_path(@event.id)
 			flash[:success] = 'Event successfully updated'
 		else
 			render 'edit'

@@ -25,7 +25,7 @@ feature "Admin can edit simple event" do
 		location = event.locations.first
     expect(location.name).to eq(@hash[:location_name])
     expect(location.address).to eq(@hash[:address])
-    expect(page).to have_current_path(admin_user_index_path)
+    expect(page).to have_current_path(event_path(event.id))
     expect(page.body).to include('Event successfully updated')
   end
   before(:each) do
@@ -39,7 +39,7 @@ feature "Admin can edit simple event" do
     admin = create(:admin_user)
     event = create(:event)
     sign_in(admin)
-    click_on(event.name)
+    click_on("edit_event_#{event.id}")
     expect(page).to have_current_path(edit_admin_event_path(event.id))
     fill_in_form(@hash)
     update_expectations(@hash)
@@ -50,7 +50,7 @@ feature "Admin can edit simple event" do
 		schedule = event.page('schedule').body
 
     sign_in(admin)
-    click_on(event.name)
+    click_on("edit_event_#{event.id}")
     expect(page).to have_current_path(edit_admin_event_path(event.id))
     fill_in_form(@hash)
 
