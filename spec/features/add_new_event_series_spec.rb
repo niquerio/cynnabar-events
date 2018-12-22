@@ -16,7 +16,7 @@ feature "Create Meta Event" do
     expect(MetaEvent.first.slug).to eq('new_event') 
     event = MetaEvent.first.events.first 
     expect(event.name).to eq('New Event 1')
-    expect(event.start_date).to eq(DateTime.parse('01-Dec-2018 00:00:00-05:00'))
-    expect(event.end_date).to eq(DateTime.parse('02-Dec-2018 23:59:59-05:00'))
+    expect(event.start_date).to eq(Date.parse('01-Dec-2018'))
+    expect(event.end_date).to eq(Date.parse('02-Dec-2018'))
   end
 end

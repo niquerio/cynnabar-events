@@ -25,8 +25,8 @@ FactoryBot.define do
   end
   factory :simple_event_full, parent: :event do
     name {"Simple Event Full"}
-    start_date { "2018-12-11 00:00:00" }
-    end_date { "2018-12-11 23:59:59" }
+    start_date { "2018-12-11" }
+    end_date { "2018-12-11" }
     after(:create) do |e|
       create(:page, body: 'Gate Gate Gate', title: 'Gate', slug: 'gate', event: e)
       create(:page, body: 'Schedule Schedule Schedule', title: 'Schedule', slug: 'schedule', event: e)

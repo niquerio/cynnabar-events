@@ -25,7 +25,7 @@ class Event < ApplicationRecord
 
 	private
 	def set_time_for_start_and_end
-		self.start_date = self.start_date&.change(zone: 'EST')
-		self.end_date = self.end_date&.change(zone: 'EST', hour: 23, min: 59, sec: 59) 
+		self.start_date = self.start_date&.change(zone: 'EST', hour: 00, min: 00, sec: 00)
+		self.end_date = self.end_date&.change(zone: 'EST', hour: 00, min: 00, sec: 00) 
 	end
 end

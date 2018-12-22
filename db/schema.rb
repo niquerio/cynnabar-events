@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_19_235218) do
+ActiveRecord::Schema.define(version: 2018_12_22_004612) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer "event_id"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2018_12_19_235218) do
   create_table "events", force: :cascade do |t|
     t.integer "meta_event_id"
     t.string "name"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "facebook_event_link"

@@ -17,8 +17,8 @@ feature "Admin can edit simple event" do
     event = Event.first
     expect(event.name).to eq(@hash[:event_name])  
     expect(event.page('gate').body).to eq(@hash[:gate_body])  
-    expect(event.start_date).to eq(DateTime.parse("#{@hash[:start_date]} 00:00:00-05:00"))
-    expect(event.end_date).to eq(DateTime.parse("#{@hash[:end_date]} 23:59:59-05:00"))
+    expect(event.start_date).to eq(Date.parse(@hash[:start_date]))
+    expect(event.end_date).to eq(Date.parse(@hash[:end_date]))
     contact = event.contacts.first
     expect(contact.email).to eq(@hash[:contact_email])
     expect(contact.name).to eq(@hash[:contact_name])
