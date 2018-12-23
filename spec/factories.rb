@@ -32,6 +32,7 @@ FactoryBot.define do
       create(:page, body: 'Schedule Schedule Schedule', title: 'Schedule', slug: 'schedule', event: e)
       create(:page, body: 'Food Food Food', title: 'Food', slug: 'food', event: e)
       create(:page, body: 'Desc Desc Desc', title: 'Description', slug: 'description', event: e)
+      create(:page, body: 'Info Info Info', title: 'Info', slug: 'info', event: e)
       create(:contact, job: 'Event Steward', event: e)
       create(:location, name: 'The Usual Church Basement', address: '55555 Division St.; Ann Arbor, MI, 48104')
     end

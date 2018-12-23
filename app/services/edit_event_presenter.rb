@@ -5,10 +5,11 @@ class EditEventPresenter
   def initialize(event)
     @event = event
     @pages = [
+      { slug: 'description', title: 'Description'},
       { slug: 'gate', title: 'Gate'},
       { slug: 'schedule', title: 'Schedule'},
       { slug: 'food', title: 'Food'},
-      { slug: 'description', title: 'Description'},
+      { slug: 'info', title: 'Info'},
     ]
     build_pages
     @event.contacts.build(job: 'Event Steward') if @event.contacts.count < 1

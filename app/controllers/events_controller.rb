@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
   def index
-    @event = Event.active(params[:slug])
+    @event = SimpleEventPresenter.new(Event.active(params[:slug]))
   end
   def show
-    @event = Event.find(params[:id])
+    @event = SimpleEventPresenter.new(Event.find(params[:id]))
     render :index
   end
 end
